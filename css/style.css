@@ -60,7 +60,7 @@ form .search-button {
 }
 .single-product {
   width: 300px;
-  height: 400px;
+  height: 450px;
   padding: 10px;
   transition: 0.6s;
 }
@@ -78,6 +78,20 @@ form .search-button {
 .product-image {
   width: 150px;
   height: 150px;
+}
+
+.single-product .rating-area {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.rating-area .fa-star {
+  color: #fcc521;
+}
+
+.rating-area .fa-user {
+  color: var(--primary-color);
 }
 
 .single-product .cart-btn {
