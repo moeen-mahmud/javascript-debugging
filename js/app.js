@@ -1,10 +1,4 @@
-// const loadProducts = () => {
-//   const url = `https://fakestoreapi.com/products`;
-//   fetch(url)
-//     .then((response) => response.json())
-//     .then((data) => showProducts(data.slice(0, 18)));
-// };
-
+// All Products Data
 const loadProducts = () => {
   const data = [
     {
@@ -217,14 +211,17 @@ const loadProducts = () => {
   showProducts(data);
 };
 
-// show all product in UI
+// Show the products in UI
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
+    //Get and set necessary data from the products
     const image = product.image;
     const ratingStar = product.rating.rate;
     const ratingPerson = product.rating.count;
     const div = document.createElement("div");
+
+    //Inner contents of the element
     div.innerHTML = `<div class="single-product">
       <div>
     <img class="product-image" src=${image}></img>
@@ -242,6 +239,8 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+// Funtionality for product count
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -251,13 +250,14 @@ const addToCart = (id, price) => {
   updateTotal();
 };
 
+// Functionality for getting the input values
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
   return converted;
 };
 
-// main price update function
+// Function for updating the price
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
@@ -265,14 +265,16 @@ const updatePrice = (id, value) => {
   document.getElementById(id).innerText = total.toFixed(2);
 };
 
-// set innerText function
+// Function for setting the innertext
 const setInnerText = (id, value) => {
   document.getElementById(id).innerText = value;
 };
 
-// update delivery charge and total Tax
+// Functionality for updating delivery charge and total tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
+
+  //Conditions for adding tax
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", (priceConverted * 0.2).toFixed(2));
@@ -287,7 +289,7 @@ const updateTaxAndCharge = () => {
   }
 };
 
-//grandTotal update function
+// Function for updating the grand total
 const updateTotal = () => {
   const grandTotal =
     getInputValue("price") +
@@ -296,4 +298,5 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
+// Load all products from the data
 loadProducts();
