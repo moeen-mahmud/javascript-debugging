@@ -214,7 +214,7 @@ const loadProducts = () => {
       rating: { rate: 3.6, count: 145 },
     },
   ];
-  showProducts(data.slice(0, 18));
+  showProducts(data);
 };
 
 // show all product in UI
@@ -223,7 +223,6 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
-    div.classList.add("product");
     div.innerHTML = `<div class="single-product">
       <div>
     <img class="product-image" src=${image}></img>
