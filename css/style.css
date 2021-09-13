@@ -1,6 +1,16 @@
+:root {
+  --text-color: #232832;
+  --primary-color: #874fee;
+  --warning-color: #e23e58;
+  --succes-color: #4fe48f;
+  --neutral-color: #fefeff;
+  --box-shadow: 0px 15px 25px -4px rgba(30, 30, 60, 0.25);
+}
+
 body {
   overflow-x: hidden;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
+  color: var(--text-color) !important;
 }
 
 .shop-nav {
@@ -9,9 +19,14 @@ body {
 }
 
 .brand-name {
+  font-family: "Abril Fatface", cursive;
   font-size: 3rem;
-  color: rgb(157, 78, 231);
+  color: var(--primary-color);
   font-weight: bold;
+}
+
+.main {
+  padding: 1rem 3rem;
 }
 
 form .search-field {
@@ -26,9 +41,11 @@ form .search-field {
   border: none;
 } */
 
-.search-button {
-  padding: 1rem 3rem;
+form .search-button {
+  padding: 1rem 2rem;
   border-radius: 10px;
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
 }
 
 #all-products {
@@ -42,31 +59,65 @@ form .search-field {
   justify-content: center;
 }
 .single-product {
-  width: 350px;
-  height: 500px;
+  width: 300px;
+  height: 400px;
   padding: 10px;
   transition: 0.6s;
 }
-/* .single-product:hover {
-    box-shadow: 4px 4px 7px gray;
-    border-radius: 10px;
-    border: 1px solid cyan;
-  } */
+
+.single-product h3 {
+  min-height: 50px;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.single-product:hover {
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+  border: 1px dotted var(--primary-color);
+}
 .product-image {
   width: 150px;
   height: 150px;
 }
+
+.single-product .cart-btn {
+  background-color: var(--succes-color);
+}
+
+.single-product .details-btn {
+  color: var(--neutral-color);
+  background-color: var(--primary-color);
+}
+
 .cart {
   width: 350px;
   padding: 10px;
-  box-shadow: 10px 10px 20px gray;
+  background-color: var(--primary-color);
+  color: var(--neutral-color);
+  box-shadow: var(--box-shadow);
   border-radius: 5px;
   margin-right: 30px;
   position: fixed;
 }
-.cart-main {
-  padding-right: 30px;
+
+.cart > table,
+thead,
+tbody {
+  color: var(--neutral-color);
 }
+
+.cart .buy-now {
+  background-color: var(--text-color);
+  color: var(--neutral-color);
+}
+
+.cart .buy-now:hover {
+  background-color: var(--neutral-color);
+}
+/* .cart-main {
+  padding-right: 30px;
+} */
+
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;
