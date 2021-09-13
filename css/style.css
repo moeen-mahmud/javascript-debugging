@@ -2,8 +2,7 @@
 :root {
   --text-color: #232832;
   --primary-color: #874fee;
-  --warning-color: #e23e58;
-  --succes-color: #4fe48f;
+  --success-color: #4fe48f;
   --neutral-color: #fefeff;
   --star-color: #fcc521;
   --box-shadow: 0px 15px 25px -4px rgba(30, 30, 60, 0.25);
@@ -71,7 +70,7 @@ form .search-button:hover {
   width: 300px;
   height: 450px;
   padding: 10px;
-  transition: 0.6s;
+  transition: all 0.4s ease-in-out;
 }
 
 .single-product h3 {
@@ -109,12 +108,22 @@ form .search-button:hover {
 
 /* Product buttons */
 .single-product .cart-btn {
-  background-color: var(--succes-color);
+  background-color: var(--text-color);
+  color: var(--neutral-color);
+}
+
+.single-product .cart-btn:hover {
+  background-color: var(--success-color);
+  color: var(--text-color);
 }
 
 .single-product .details-btn {
   color: var(--neutral-color);
   background-color: var(--primary-color);
+}
+
+.single-product .details-btn:hover {
+  background-color: var(--success-color);
 }
 
 /* Cart styling */
@@ -138,12 +147,13 @@ tbody {
 
 /* Cart button */
 .cart .buy-now {
-  background-color: var(--text-color);
-  color: var(--neutral-color);
+  color: var(--text-color);
+  background-color: var(--neutral-color);
 }
 
 .cart .buy-now:hover {
-  background-color: var(--neutral-color);
+  background-color: var(--text-color);
+  color: var(--neutral-color);
 }
 
 /* Media queries */
